@@ -1,0 +1,1 @@
+<section class="panel admin-panel"><div class="section-title"><div><span class="section-kicker">PHẢN HỒI CỘNG ĐỒNG</span><h2><?= count($state['reviews']) ?> đánh giá</h2></div></div><?= render_review_table($state['reviews'], $meals) ?></section>

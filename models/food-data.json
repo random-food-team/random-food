@@ -1,0 +1,391 @@
+{
+  "categories": [
+    {
+      "id": "soup",
+      "name": "Món nước",
+      "emoji": "🥣",
+      "count": 6
+    },
+    {
+      "id": "noodles",
+      "name": "Bún & mì",
+      "emoji": "🍜",
+      "count": 6
+    },
+    {
+      "id": "rice",
+      "name": "Cơm",
+      "emoji": "🍚",
+      "count": 4
+    },
+    {
+      "id": "snack",
+      "name": "Ăn nhẹ",
+      "emoji": "🥟",
+      "count": 4
+    },
+    {
+      "id": "vegetarian",
+      "name": "Món chay",
+      "emoji": "🥬",
+      "count": 2
+    }
+  ],
+  "meals": [
+    {
+      "id": "pho-bo-ha-noi",
+      "name": "Phở bò Hà Nội",
+      "category": "soup",
+      "emoji": "🍲",
+      "rating": 4.9,
+      "reviews": 128,
+      "price": "45.000–65.000đ",
+      "location": "Miền Bắc",
+      "time": "30 phút",
+      "description": "Nước dùng trong, thơm dịu, bánh phở mềm và thịt bò tươi. Một tô phở nóng hổi cho ngày mới đầy năng lượng.",
+      "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1200&q=85"
+    },
+    {
+      "id": "bun-bo-hue",
+      "name": "Bún bò Huế",
+      "category": "noodles",
+      "emoji": "🌶️",
+      "rating": 4.8,
+      "reviews": 96,
+      "price": "40.000–60.000đ",
+      "location": "Miền Trung",
+      "time": "35 phút",
+      "description": "Nước lèo đậm đà vị sả và mắm ruốc, thêm chút cay nồng đặc trưng của xứ Huế.",
+      "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1200&q=85"
+    },
+    {
+      "id": "com-tam-suon",
+      "name": "Cơm tấm sườn nướng",
+      "category": "rice",
+      "emoji": "🍖",
+      "rating": 4.8,
+      "reviews": 84,
+      "price": "35.000–55.000đ",
+      "location": "Miền Nam",
+      "time": "25 phút",
+      "description": "Sườn nướng thơm, cơm tấm dẻo tơi, ăn cùng mỡ hành và nước mắm chua ngọt.",
+      "image": "https://images.unsplash.com/photo-1516684732162-798a0062be99?auto=format&fit=crop&w=1200&q=85"
+    },
+    {
+      "id": "bun-cha-ha-noi",
+      "name": "Bún chả Hà Nội",
+      "category": "noodles",
+      "emoji": "🥢",
+      "rating": 4.7,
+      "reviews": 72,
+      "price": "40.000–60.000đ",
+      "location": "Miền Bắc",
+      "time": "30 phút",
+      "description": "Thịt nướng xém cạnh, nước chấm chua ngọt và rau sống tươi mát.",
+      "image": "https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=1200&q=85"
+    },
+    {
+      "id": "banh-mi-thit",
+      "name": "Bánh mì thịt",
+      "category": "snack",
+      "emoji": "🥖",
+      "rating": 4.7,
+      "reviews": 63,
+      "price": "20.000–35.000đ",
+      "location": "Miền Nam",
+      "time": "10 phút",
+      "description": "Vỏ bánh giòn rụm, nhân thịt đậm vị, rau thơm và đồ chua cân bằng.",
+      "image": "https://images.unsplash.com/photo-1600688640154-9619e002df30?auto=format&fit=crop&w=1200&q=85"
+    },
+    {
+      "id": "goi-cuon",
+      "name": "Gỏi cuốn tôm thịt",
+      "category": "snack",
+      "emoji": "🥬",
+      "rating": 4.6,
+      "reviews": 51,
+      "price": "30.000–45.000đ",
+      "location": "Miền Nam",
+      "time": "20 phút",
+      "description": "Cuốn tươi thanh mát với tôm, thịt, bún và rau sống; chấm tương đậu.",
+      "image": "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=85"
+    },
+    {
+      "id": "mi-quang",
+      "name": "Mì Quảng",
+      "category": "noodles",
+      "emoji": "🍜",
+      "rating": 4.8,
+      "reviews": 58,
+      "price": "35.000–55.000đ",
+      "location": "Miền Trung",
+      "time": "30 phút",
+      "description": "Sợi mì vàng, nước dùng sánh nhẹ, đậu phộng rang và bánh tráng giòn.",
+      "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1200&q=85"
+    },
+    {
+      "id": "com-ga-hoi-an",
+      "name": "Cơm gà Hội An",
+      "category": "rice",
+      "emoji": "🍗",
+      "rating": 4.8,
+      "reviews": 69,
+      "price": "40.000–60.000đ",
+      "location": "Miền Trung",
+      "time": "30 phút",
+      "description": "Cơm nấu nước luộc gà vàng thơm, thịt gà xé và rau thơm.",
+      "image": "https://images.unsplash.com/photo-1516684732162-798a0062be99?auto=format&fit=crop&w=1200&q=85"
+    },
+    {
+      "id": "bun-rieu",
+      "name": "Bún riêu cua",
+      "category": "soup",
+      "emoji": "🦀",
+      "rating": 4.7,
+      "reviews": 42,
+      "price": "35.000–50.000đ",
+      "location": "Miền Bắc",
+      "time": "35 phút",
+      "description": "Nước dùng chua thanh, riêu cua béo thơm và rau sống ăn kèm.",
+      "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1200&q=85"
+    },
+    {
+      "id": "hu-tieu-nam-vang",
+      "name": "Hủ tiếu Nam Vang",
+      "category": "soup",
+      "emoji": "🍜",
+      "rating": 4.7,
+      "reviews": 48,
+      "price": "35.000–55.000đ",
+      "location": "Miền Nam",
+      "time": "25 phút",
+      "description": "Sợi hủ tiếu mềm dai, nước dùng thanh ngọt cùng tôm và thịt.",
+      "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1200&q=85"
+    },
+    {
+      "id": "banh-xeo",
+      "name": "Bánh xèo miền Tây",
+      "category": "snack",
+      "emoji": "🥞",
+      "rating": 4.6,
+      "reviews": 39,
+      "price": "35.000–60.000đ",
+      "location": "Miền Nam",
+      "time": "25 phút",
+      "description": "Vỏ bánh vàng giòn, nhân tôm thịt và thật nhiều rau xanh.",
+      "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=1200&q=85"
+    },
+    {
+      "id": "bun-dau-mam-tom",
+      "name": "Bún đậu mắm tôm",
+      "category": "noodles",
+      "emoji": "🍱",
+      "rating": 4.8,
+      "reviews": 91,
+      "price": "40.000–70.000đ",
+      "location": "Miền Bắc",
+      "time": "20 phút",
+      "description": "Đậu rán vàng, bún lá, chả cốm và mắm tôm đánh bông.",
+      "image": "https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=1200&q=85"
+    },
+    {
+      "id": "com-rang-dua-bo",
+      "name": "Cơm rang dưa bò",
+      "category": "rice",
+      "emoji": "🍳",
+      "rating": 4.6,
+      "reviews": 34,
+      "price": "35.000–50.000đ",
+      "location": "Miền Bắc",
+      "time": "20 phút",
+      "description": "Cơm rang săn hạt ăn cùng thịt bò xào dưa chua đậm đà.",
+      "image": "https://images.unsplash.com/photo-1516684732162-798a0062be99?auto=format&fit=crop&w=1200&q=85"
+    },
+    {
+      "id": "banh-cuon",
+      "name": "Bánh cuốn nóng",
+      "category": "snack",
+      "emoji": "🥟",
+      "rating": 4.6,
+      "reviews": 32,
+      "price": "25.000–40.000đ",
+      "location": "Miền Bắc",
+      "time": "20 phút",
+      "description": "Lớp bánh mỏng mềm, nhân thịt mộc nhĩ, hành phi thơm.",
+      "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=1200&q=85"
+    },
+    {
+      "id": "cao-lau",
+      "name": "Cao lầu Hội An",
+      "category": "noodles",
+      "emoji": "🥢",
+      "rating": 4.8,
+      "reviews": 41,
+      "price": "40.000–60.000đ",
+      "location": "Miền Trung",
+      "time": "25 phút",
+      "description": "Sợi mì dai, thịt xá xíu, rau sống và chút nước sốt đậm vị.",
+      "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1200&q=85"
+    },
+    {
+      "id": "pho-cuon",
+      "name": "Phở cuốn",
+      "category": "noodles",
+      "emoji": "🌯",
+      "rating": 4.6,
+      "reviews": 27,
+      "price": "35.000–50.000đ",
+      "location": "Miền Bắc",
+      "time": "20 phút",
+      "description": "Bánh phở cuốn thịt bò xào, ăn cùng rau thơm và nước chấm.",
+      "image": "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=85"
+    },
+    {
+      "id": "bun-thit-nuong",
+      "name": "Bún thịt nướng",
+      "category": "noodles",
+      "emoji": "🍢",
+      "rating": 4.7,
+      "reviews": 56,
+      "price": "35.000–50.000đ",
+      "location": "Miền Nam",
+      "time": "25 phút",
+      "description": "Thịt nướng thơm, bún tươi, rau và nước mắm pha vừa miệng.",
+      "image": "https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&w=1200&q=85"
+    },
+    {
+      "id": "chao-suon",
+      "name": "Cháo sườn",
+      "category": "soup",
+      "emoji": "🥣",
+      "rating": 4.5,
+      "reviews": 24,
+      "price": "25.000–40.000đ",
+      "location": "Miền Bắc",
+      "time": "25 phút",
+      "description": "Cháo mịn nóng hổi, sườn mềm, thêm quẩy giòn cho ngày se lạnh.",
+      "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1200&q=85"
+    },
+    {
+      "id": "banh-canh-cua",
+      "name": "Bánh canh cua",
+      "category": "soup",
+      "emoji": "🦀",
+      "rating": 4.8,
+      "reviews": 47,
+      "price": "45.000–65.000đ",
+      "location": "Miền Nam",
+      "time": "30 phút",
+      "description": "Sợi bánh canh dai mềm trong nước dùng sánh thơm vị cua.",
+      "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1200&q=85"
+    },
+    {
+      "id": "goi-ngo-sen",
+      "name": "Gỏi ngó sen",
+      "category": "vegetarian",
+      "emoji": "🥗",
+      "rating": 4.5,
+      "reviews": 18,
+      "price": "30.000–45.000đ",
+      "location": "Miền Nam",
+      "time": "20 phút",
+      "description": "Món chay thanh mát với ngó sen giòn, rau thơm và nước trộn chua ngọt.",
+      "image": "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=85"
+    },
+    {
+      "id": "com-chay-nam",
+      "name": "Cơm chay nấm",
+      "category": "vegetarian",
+      "emoji": "🍄",
+      "rating": 4.6,
+      "reviews": 22,
+      "price": "30.000–45.000đ",
+      "location": "Món chay",
+      "time": "25 phút",
+      "description": "Cơm nóng ăn cùng nấm xào và rau củ theo mùa.",
+      "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1200&q=85"
+    },
+    {
+      "id": "xoi-xeo",
+      "name": "Xôi xéo",
+      "category": "rice",
+      "emoji": "🍚",
+      "rating": 4.5,
+      "reviews": 29,
+      "price": "20.000–35.000đ",
+      "location": "Miền Bắc",
+      "time": "15 phút",
+      "description": "Xôi nếp dẻo thơm, đậu xanh tơi, hành phi vàng ruộm.",
+      "image": "https://images.unsplash.com/photo-1516684732162-798a0062be99?auto=format&fit=crop&w=1200&q=85"
+    },
+    {
+      "id": "banh-trang-tron",
+      "name": "Bánh tráng trộn",
+      "category": "snack",
+      "emoji": "🥗",
+      "rating": 4.5,
+      "reviews": 64,
+      "price": "20.000–35.000đ",
+      "location": "Miền Nam",
+      "time": "10 phút",
+      "description": "Bánh tráng dai mềm trộn cùng xoài xanh, trứng cút và rau răm.",
+      "image": "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=85"
+    }
+  ],
+  "users": [
+    {
+      "id": "user-1",
+      "name": "Nguyễn Minh Anh",
+      "email": "minhanh@example.com",
+      "role": "Thành viên",
+      "status": "Hoạt động"
+    },
+    {
+      "id": "user-2",
+      "name": "Trần Hoàng Nam",
+      "email": "hoangnam@example.com",
+      "role": "Thành viên",
+      "status": "Hoạt động"
+    },
+    {
+      "id": "user-3",
+      "name": "Lê Thu Hà",
+      "email": "thuha@example.com",
+      "role": "Thành viên",
+      "status": "Chờ xác nhận"
+    },
+    {
+      "id": "user-4",
+      "name": "Phạm Gia Bảo",
+      "email": "giabao@example.com",
+      "role": "Quản trị",
+      "status": "Hoạt động"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "review-1",
+      "name": "Minh Anh",
+      "mealId": "pho-bo-ha-noi",
+      "rating": 5,
+      "text": "Nước dùng thơm, rất vừa miệng.",
+      "status": "Đã duyệt"
+    },
+    {
+      "id": "review-2",
+      "name": "Hoàng Nam",
+      "mealId": "bun-bo-hue",
+      "rating": 4,
+      "text": "Đậm vị, hơi cay nhưng ngon.",
+      "status": "Chờ duyệt"
+    },
+    {
+      "id": "review-3",
+      "name": "Thu Hà",
+      "mealId": "com-tam-suon",
+      "rating": 5,
+      "text": "Sườn mềm, phần ăn vừa đủ.",
+      "status": "Chờ duyệt"
+    }
+  ]
+}
