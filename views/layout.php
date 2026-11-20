@@ -14,7 +14,7 @@ $pageView = __DIR__ . '/pages/' . $page . '.php';
   <meta name="description" content="RandomFood giúp bạn chọn món ăn hôm nay nhanh gọn và vui vẻ.">
   <title><?= h($pageTitle) ?> — Random Food</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🍜%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=<?= h((string)filemtime(__DIR__ . '/../styles.css')) ?>">
 </head>
 <body>
 <header class="site-header">
