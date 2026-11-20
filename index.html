@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f5ef">
+    <meta name="description" content="RandomFood giúp bạn chọn món ăn hôm nay nhanh gọn và vui vẻ.">
+    <title>RandomFood — Hôm nay ăn gì?</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🍜%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="RandomFood - trang chủ">
+        <span class="brand-mark" aria-hidden="true">R</span>
+        <span>random<span class="brand-accent">food</span></span>
+      </a>
+      <span class="header-note"><span class="status-dot" aria-hidden="true"></span> Hôm nay ăn ngon nhé</span>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span aria-hidden="true">✳</span> GỠ RỐI CHUYỆN ĂN GÌ</p>
+          <h1 id="page-title">Để hôm nay<br> <span>ăn gì</span> tính sau.</h1>
+          <p class="hero-description">Chọn một món thật ngẫu nhiên, hoặc thêm món bạn đang thèm. Bữa tiếp theo để RandomFood lo!</p>
+          <button class="button button-primary hero-button" id="pick-button" type="button">
+            <span aria-hidden="true">✦</span> Chọn món cho tôi
+          </button>
+          <p class="shortcut-hint">Hoặc bấm vào một món bên dưới để chọn ngay</p>
+        </div>
+
+        <div class="result-card" aria-labelledby="result-title">
+          <div class="result-topline">
+            <span class="result-label"><span aria-hidden="true">✳</span> MÓN CỦA BẠN</span>
+            <span class="result-count" id="result-count">01 / 01</span>
+          </div>
+          <div class="result-content" id="result-content" aria-live="polite" aria-atomic="true">
+            <div class="result-emoji" id="result-emoji" aria-hidden="true">🍜</div>
+            <p class="result-category" id="result-category">GỢI Ý HÔM NAY</p>
+            <h2 id="result-title">Bữa nay ăn gì?</h2>
+            <p class="result-description" id="result-description">Bấm nút bên trái để tìm câu trả lời nhé.</p>
+          </div>
+          <div class="result-footer">
+            <span><span class="status-dot" aria-hidden="true"></span> Không cần suy nghĩ nữa</span>
+            <button class="icon-button" id="reroll-button" type="button" aria-label="Chọn món khác" title="Chọn món khác">↻</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="menu-section" aria-labelledby="menu-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">DANH SÁCH GỢI Ý</p>
+            <h2 id="menu-heading">Món ngon quanh đây <span id="meal-total">12</span></h2>
+          </div>
+          <label class="search-box">
+            <span class="visually-hidden">Tìm món ăn</span>
+            <span aria-hidden="true">⌕</span>
+            <input id="search-input" type="search" placeholder="Tìm món..." autocomplete="off">
+          </label>
+        </div>
+
+        <div class="filters" role="group" aria-label="Lọc món theo loại">
+          <button class="filter-button is-active" type="button" data-category="all" aria-pressed="true">Tất cả</button>
+          <button class="filter-button" type="button" data-category="rice" aria-pressed="false">🍚 Cơm</button>
+          <button class="filter-button" type="button" data-category="noodles" aria-pressed="false">🍜 Bún & mì</button>
+          <button class="filter-button" type="button" data-category="soup" aria-pressed="false">🥣 Món nước</button>
+          <button class="filter-button" type="button" data-category="snack" aria-pressed="false">🥟 Ăn vặt</button>
+          <button class="filter-button" type="button" data-category="vegetarian" aria-pressed="false">🥬 Món chay</button>
+        </div>
+
+        <div class="meal-grid" id="meal-grid"></div>
+        <p class="empty-state" id="empty-state" hidden>Không tìm thấy món phù hợp. Thử từ khóa khác nhé.</p>
+      </section>
+
+      <section class="add-section" aria-labelledby="add-heading">
+        <div class="add-copy">
+          <span class="add-icon" aria-hidden="true">＋</span>
+          <div>
+            <h2 id="add-heading">Thèm món khác?</h2>
+            <p>Thêm món của riêng bạn vào danh sách.</p>
+          </div>
+        </div>
+        <form class="add-form" id="add-form">
+          <label class="visually-hidden" for="meal-name">Tên món ăn</label>
+          <input id="meal-name" name="name" type="text" maxlength="48" placeholder="Ví dụ: Bánh mì chảo" required>
+          <label class="visually-hidden" for="meal-category">Phân loại món</label>
+          <select id="meal-category" name="category">
+            <option value="rice">Cơm</option>
+            <option value="noodles">Bún & mì</option>
+            <option value="soup">Món nước</option>
+            <option value="snack">Ăn vặt</option>
+            <option value="vegetarian">Món chay</option>
+          </select>
+          <button class="button button-dark" type="submit">Thêm món <span aria-hidden="true">↗</span></button>
+        </form>
+        <p class="storage-notice" id="storage-notice" role="status" hidden></p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <a class="brand footer-brand" href="#" aria-label="RandomFood - về đầu trang">
+        <span class="brand-mark" aria-hidden="true">R</span>
+        <span>random<span class="brand-accent">food</span></span>
+      </a>
+      <p>Được làm để bữa ăn vui hơn <span aria-hidden="true">♡</span></p>
+      <button class="text-button" id="clear-custom-button" type="button">Xóa món đã thêm</button>
+    </footer>
+  </body>
+</html>
