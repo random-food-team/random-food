@@ -24,6 +24,11 @@ final class AppController
             $page = 'home';
         }
 
+        if (in_array($page, ['admin', 'meals', 'categories', 'users', 'reviews'], true) && !$this->model->isAdmin()) {
+            $_SESSION['randomfood_flash'] = 'Vui lòng đăng nhập bằng tài khoản quản trị.';
+            $this->redirect('login');
+        }
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $this->handlePost($page);
         }
@@ -60,6 +65,12 @@ final class AppController
         }
 
         $action = (string)($_POST['action'] ?? '');
+        if (in_array($action, ['add-meal', 'delete-meal', 'add-category', 'delete-category', 'approve-review'], true)
+            && !$this->model->isAdmin()) {
+            $_SESSION['randomfood_flash'] = 'Bạn không có quyền thực hiện thao tác này.';
+            $this->redirect('login');
+        }
+
         $redirectPage = (string)($_POST['return_page'] ?? $page);
         if (!in_array($redirectPage, $this->pages, true)) {
             $redirectPage = 'home';
@@ -82,13 +93,19 @@ final class AppController
                     $_SESSION['randomfood_flash'] = $added ? 'Đã lưu vào món yêu thích.' : 'Đã bỏ khỏi món yêu thích.';
                     break;
                 case 'login':
+                    $this->model->login(
+                        (string)($_POST['email'] ?? ''),
+                        (string)($_POST['password'] ?? '')
+                    );
+                    $_SESSION['randomfood_flash'] = 'Đăng nhập thành công.';
+                    $this->redirect('profile');
                 case 'register':
-                    $name = (string)($_POST['name'] ?? '');
-                    if ($action === 'register' && trim($name) === '') {
-                        throw new RuntimeException('Hãy nhập họ tên của bạn.');
-                    }
-                    $this->model->login($name, (string)($_POST['email'] ?? ''));
-                    $_SESSION['randomfood_flash'] = 'Đăng nhập demo thành công trên phiên hiện tại.';
+                    $this->model->register(
+                        (string)($_POST['name'] ?? ''),
+                        (string)($_POST['email'] ?? ''),
+                        (string)($_POST['password'] ?? '')
+                    );
+                    $_SESSION['randomfood_flash'] = 'Tạo tài khoản thành công.';
                     $this->redirect('profile');
                 case 'logout':
                     $this->model->logout();
@@ -121,7 +138,7 @@ final class AppController
                 case 'add-review':
                     $mealId = (string)($_POST['id'] ?? '');
                     $this->model->addReview($mealId, (int)($_POST['rating'] ?? 0), (string)($_POST['text'] ?? ''));
-                    $_SESSION['randomfood_flash'] = 'Đánh giá đã lưu ở trạng thái chờ duyệt (bản demo).';
+                    $_SESSION['randomfood_flash'] = 'Đánh giá đã lưu ở trạng thái chờ duyệt.';
                     $this->redirect('detail', ['id' => $mealId]);
                 case 'update-settings':
                     $this->model->updateSettings(
@@ -134,6 +151,9 @@ final class AppController
                 default:
                     throw new RuntimeException('Thao tác không hợp lệ.');
             }
+        } catch (PDOException $error) {
+            error_log($error->getMessage());
+            $_SESSION['randomfood_flash'] = 'Không thể lưu dữ liệu. Vui lòng kiểm tra kết nối database và thử lại.';
         } catch (RuntimeException $error) {
             $_SESSION['randomfood_flash'] = $error->getMessage();
         }

@@ -12,4 +12,15 @@ if (!isset($_SESSION['csrf_token'])) {
 }
 
 require_once __DIR__ . '/controllers/AppController.php';
-(new AppController())->run();
+
+try {
+    (new AppController())->run();
+} catch (PDOException $error) {
+    error_log($error->getMessage());
+    http_response_code(500);
+    echo '<h1>Không thể truy cập database</h1><p>Hãy kiểm tra cấu hình MySQL và thử lại.</p>';
+} catch (RuntimeException $error) {
+    error_log($error->getMessage());
+    http_response_code(500);
+    echo '<h1>Ứng dụng chưa sẵn sàng</h1><p>' . htmlspecialchars($error->getMessage(), ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8') . '</p>';
+}

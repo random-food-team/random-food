@@ -3,7 +3,9 @@ declare(strict_types=1);
 
 $state = $this->model->state();
 $isAdmin = in_array($page, ['admin', 'meals', 'categories', 'users', 'reviews'], true);
-$pageView = __DIR__ . '/pages/' . $page . '.php';
+$isUser = in_array($page, ['profile', 'favorites', 'history', 'settings'], true);
+$pageFolder = $isAdmin ? 'admin' : ($isUser ? 'user' : 'guest');
+$pageView = __DIR__ . '/' . $pageFolder . '/' . $page . '.php';
 ?>
 <!doctype html>
 <html lang="vi">
@@ -41,7 +43,7 @@ $pageView = __DIR__ . '/pages/' . $page . '.php';
   <?php if ($notice !== ''): ?><div class="notice-banner" role="status"><?= h($notice) ?></div><?php endif; ?>
   <?php if ($isAdmin): ?>
     <section class="admin-page">
-      <div class="admin-banner"><span class="admin-mark">RF</span><div><span class="section-kicker">RANDOM FOOD · DEMO ADMIN</span><h1><?= h(PAGE_META[$page][0]) ?></h1><p><?= h(PAGE_META[$page][1]) ?></p></div><span class="demo-pill">BẢN THỬ NGHIỆM</span></div>
+      <div class="admin-banner"><span class="admin-mark">RF</span><div><span class="section-kicker">RANDOM FOOD · ADMIN</span><h1><?= h(PAGE_META[$page][0]) ?></h1><p><?= h(PAGE_META[$page][1]) ?></p></div><span class="demo-pill">QUẢN TRỊ</span></div>
       <div class="admin-layout">
         <aside class="admin-sidebar panel"><span class="section-kicker">QUẢN TRỊ</span>
           <?php foreach (ADMIN_LINKS as [$route, $label, $icon]): ?>
@@ -51,7 +53,7 @@ $pageView = __DIR__ . '/pages/' . $page . '.php';
         </aside>
         <div class="admin-content"><?php require $pageView; ?></div>
       </div>
-      <p class="demo-note">Khu vực quản trị mô phỏng giao diện; chưa có phân quyền hoặc dữ liệu máy chủ.</p>
+      <p class="demo-note">Khu vực này chỉ dành cho tài khoản có vai trò quản trị.</p>
     </section>
   <?php else: ?>
     <?php require $pageView; ?>
@@ -60,7 +62,7 @@ $pageView = __DIR__ . '/pages/' . $page . '.php';
 <footer class="site-footer">
   <a class="brand footer-brand" href="<?= h(route_url('home')) ?>"><span class="brand-icon">✳</span><span>Random <b>Food</b></span></a>
   <p>Mỗi bữa ăn, một khám phá mới. <span>♡</span></p>
-  <div><a href="<?= h(route_url('settings')) ?>">Cài đặt</a><a href="<?= h(route_url('admin')) ?>">Quản trị demo</a></div>
+  <div><a href="<?= h(route_url('settings')) ?>">Cài đặt</a><a href="<?= h(route_url('admin')) ?>">Quản trị</a></div>
 </footer>
 </body>
 </html>

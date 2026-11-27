@@ -21,16 +21,50 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Check FTP settings
+      - name: Check deployment settings
         env:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          DB_HOST: ${{ secrets.DB_HOST }}
+          DB_NAME: ${{ secrets.DB_NAME }}
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
         run: |
           if [ -z "$FTP_SERVER" ] || [ -z "$FTP_USERNAME" ] || [ -z "$FTP_PASSWORD" ]; then
             echo "::error::Add FTP_SERVER, FTP_USERNAME, and FTP_PASSWORD in the repository Actions secrets."
             exit 1
           fi
+          if [ -z "$DB_HOST" ] || [ -z "$DB_NAME" ] || [ -z "$DB_USER" ] || [ -z "$DB_PASSWORD" ]; then
+            echo "::error::Add DB_HOST, DB_NAME, DB_USER, and DB_PASSWORD in the repository Actions secrets."
+            exit 1
+          fi
+
+      - name: Create runtime database config
+        env:
+          DB_HOST: ${{ secrets.DB_HOST }}
+          DB_PORT: ${{ secrets.DB_PORT }}
+          DB_NAME: ${{ secrets.DB_NAME }}
+          DB_USER: ${{ secrets.DB_USER }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+        run: |
+          python3 - <<'PY'
+          import base64
+          import json
+          import os
+          from pathlib import Path
+
+          config = {
+              "host": os.environ["DB_HOST"],
+              "port": os.environ.get("DB_PORT") or "3306",
+              "name": os.environ["DB_NAME"],
+              "user": os.environ["DB_USER"],
+              "password": os.environ["DB_PASSWORD"],
+          }
+          payload = base64.b64encode(json.dumps(config, separators=(",", ":")).encode("utf-8")).decode("ascii")
+          php = "<?php\ndeclare(strict_types=1);\nreturn json_decode(base64_decode('" + payload + "'), true, 512, JSON_THROW_ON_ERROR);\n"
+          Path("models/database.local.php").write_text(php, encoding="utf-8")
+          PY
 
       - name: Upload site to InfinityFree
         uses: SamKirkland/FTP-Deploy-Action@a51268f67f6605236975928ae28b0f7e9971d50a
