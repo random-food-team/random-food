@@ -11,7 +11,7 @@ usort($popularMeals, static function (array $first, array $second): int {
     <span class="hero-badge">✦ Mỗi bữa ăn, một khám phá mới</span>
     <h1>Hôm nay ăn gì?<br>Để chúng mình<br><span>chọn nhé!</span></h1>
     <p>Tạm biệt câu hỏi khó nhất mỗi ngày. Tìm món hợp gu, khám phá vị mới và để một chút ngẫu nhiên làm bữa ăn thú vị hơn.</p>
-    <div class="hero-actions"><a class="button button-primary" href="<?= h(route_url('random')) ?>"><span>⤨</span> Random Food</a><a class="button button-light" href="<?= h(route_url('explore')) ?>"><span>↗</span> Khám phá món ăn</a></div>
+    <div class="hero-actions"><a class="button button-primary" href="<?= h(route_url('random')) ?>"><span>⤨</span> Random Food</a><a class="button button-light" href="<?= h(route_url('explore')) ?>"><span>↗</span> Khám phá món ăn</a><?php if ($isAdminUser): ?><a class="button button-light" href="<?= h(route_url('admin')) ?>">⚙ Vào quản trị</a><?php endif; ?></div>
     <span class="hero-note">✧ Hương vị Việt · Chọn theo sở thích của bạn</span>
   </div>
   <?php if ($featured): ?>
