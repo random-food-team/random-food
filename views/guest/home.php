@@ -1,5 +1,10 @@
 <?php
 $featured = $meals[0] ?? null;
+$popularMeals = $meals;
+usort($popularMeals, static function (array $first, array $second): int {
+    $ratingOrder = (float)$second['rating'] <=> (float)$first['rating'];
+    return $ratingOrder !== 0 ? $ratingOrder : ((int)$second['reviews'] <=> (int)$first['reviews']);
+});
 ?>
 <section class="hero">
   <div class="hero-copy">
@@ -27,5 +32,5 @@ $featured = $meals[0] ?? null;
 </section>
 <section class="content-section">
   <div class="section-title"><div><span class="section-kicker">GỢI Ý HÔM NAY</span><h2>Món ngon được yêu thích</h2></div><a href="<?= h(route_url('explore')) ?>">Xem tất cả →</a></div>
-  <?= render_meal_grid(array_slice($visibleMeals, 0, 4), $state) ?>
+  <?= render_meal_grid(array_slice($popularMeals, 0, 4), $state) ?>
 </section>
