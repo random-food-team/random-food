@@ -7,6 +7,6 @@
     <label>Email<input name="email" type="email" autocomplete="email" required placeholder="you@example.com"></label>
     <label>Mật khẩu<input name="password" type="password" minlength="6" autocomplete="new-password" required placeholder="Ít nhất 6 ký tự"></label>
     <button class="button button-primary auth-submit" type="submit">Đăng ký <span>→</span></button>
-    <p class="demo-note">Bản giao diện thử nghiệm: chưa kết nối xác thực hoặc máy chủ.</p><p class="auth-switch">Đã có tài khoản? <a href="<?= h(route_url('login')) ?>">Đăng nhập</a></p>
+    <p class="auth-switch">Đã có tài khoản? <a href="<?= h(route_url('login')) ?>">Đăng nhập</a></p>
   </form>
 </section>

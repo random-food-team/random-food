@@ -4,7 +4,7 @@
   <aside class="profile-nav panel"><div class="avatar"><?= h(rf_substr($user['name'], 1)) ?></div><strong><?= h($user['name']) ?></strong><span><?= h($user['email']) ?></span>
     <a class="nav-link is-active" href="<?= h(route_url('profile')) ?>">Thông tin cá nhân</a><a class="nav-link" href="<?= h(route_url('favorites')) ?>">Món yêu thích</a><a class="nav-link" href="<?= h(route_url('history')) ?>">Lịch sử random</a><a class="nav-link" href="<?= h(route_url('settings')) ?>">Cài đặt</a>
   </aside>
-  <section class="panel profile-form"><h2>Thông tin cá nhân</h2><p>Thông tin chỉ được lưu trên phiên trình duyệt này trong bản demo.</p>
+  <section class="panel profile-form"><h2>Thông tin cá nhân</h2><p>Thông tin hồ sơ được lưu trong tài khoản của bạn.</p>
     <?php if ($state['user']): ?>
       <?= post_form_open('update-profile', 'profile') ?><label>Tên hiển thị<input name="name" value="<?= h($user['name']) ?>" required></label><label>Email<input value="<?= h($user['email']) ?>" disabled></label><button class="button button-primary" type="submit">Lưu thay đổi</button></form>
       <?= post_form_open('logout', 'profile') ?><button class="text-button" type="submit">Đăng xuất</button></form>
