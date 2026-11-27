@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 $state = $this->model->state();
+$isAdminUser = ($state['user']['role'] ?? null) === 'admin';
 $isAdmin = in_array($page, ['admin', 'meals', 'categories', 'users', 'reviews'], true);
 $isUser = in_array($page, ['profile', 'favorites', 'history', 'settings'], true);
 $pageFolder = $isAdmin ? 'admin' : ($isUser ? 'user' : 'guest');
@@ -36,7 +37,7 @@ $pageView = __DIR__ . '/' . $pageFolder . '/' . $page . '.php';
       <a class="nav-link login-link <?= $page === 'login' ? 'is-active' : '' ?>" href="<?= h(route_url('login')) ?>">Đăng nhập</a>
       <a class="button button-primary header-register" href="<?= h(route_url('register')) ?>">Đăng ký</a>
     <?php endif; ?>
-    <a class="admin-shortcut" href="<?= h(route_url('admin')) ?>" aria-label="Khu vực quản trị">⚙</a>
+    <?php if ($isAdminUser): ?><a class="admin-shortcut" href="<?= h(route_url('admin')) ?>" aria-label="Khu vực quản trị">⚙</a><?php endif; ?>
   </nav>
 </header>
 <main class="app-main <?= $isAdmin ? 'is-admin' : '' ?>">
@@ -62,7 +63,7 @@ $pageView = __DIR__ . '/' . $pageFolder . '/' . $page . '.php';
 <footer class="site-footer">
   <a class="brand footer-brand" href="<?= h(route_url('home')) ?>"><span class="brand-icon">✳</span><span>Random <b>Food</b></span></a>
   <p>Mỗi bữa ăn, một khám phá mới. <span>♡</span></p>
-  <div><a href="<?= h(route_url('settings')) ?>">Cài đặt</a><a href="<?= h(route_url('admin')) ?>">Quản trị</a></div>
+  <div><a href="<?= h(route_url('settings')) ?>">Cài đặt</a><?php if ($isAdminUser): ?><a href="<?= h(route_url('admin')) ?>">Quản trị</a><?php endif; ?></div>
 </footer>
 </body>
 </html>

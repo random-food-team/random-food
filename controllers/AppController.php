@@ -98,7 +98,7 @@ final class AppController
                         (string)($_POST['password'] ?? '')
                     );
                     $_SESSION['randomfood_flash'] = 'Đăng nhập thành công.';
-                    $this->redirect('profile');
+                    $this->redirect($this->model->isAdmin() ? 'admin' : 'profile');
                 case 'register':
                     $this->model->register(
                         (string)($_POST['name'] ?? ''),
